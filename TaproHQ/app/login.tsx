@@ -9,6 +9,11 @@ export default function Login() {
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
+            <TouchableOpacity>
+          <Text style={styles.text}>
+            Forgot Password?
+          </Text>
+          </TouchableOpacity>
 
         </View>
     
@@ -57,5 +62,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     height: 55,
+  },
+  text: {
+    textAlign: "center",
+    padding: 10,
   },
 })
