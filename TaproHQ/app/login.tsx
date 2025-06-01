@@ -1,4 +1,4 @@
-import { View ,StyleSheet,Text,TextInput} from "react-native";
+import { View ,StyleSheet,Text,TextInput,TouchableOpacity} from "react-native";
 export default function Login() {
   return (
     <View style={styles.container}>
@@ -6,6 +6,9 @@ export default function Login() {
             <Text style={styles.title}>Login</Text>
             <TextInput placeholder="Username" style={styles.input} />
             <TextInput placeholder="Password" style={styles.input} />
+            <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
 
         </View>
     
@@ -42,5 +45,17 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     paddingHorizontal: 10,
     backgroundColor: "white",
+  },
+  buttonText: {
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  button: {
+    justifyContent: "center",
+    backgroundColor: "gray",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    height: 55,
   },
 })
