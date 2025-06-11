@@ -1,6 +1,9 @@
 import { ImageBackground } from "expo-image";
 import { View ,StyleSheet,Text,TextInput,TouchableOpacity} from "react-native";
 import { Link } from "expo-router";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { openURL } from "expo-linking";
+
 export default function Login() {
   return (
     <View style={styles.container}>
@@ -25,6 +28,22 @@ export default function Login() {
           </Link>
         </Text>
         <View style={styles.line} />
+        <View style={{flexDirection: "row", gap:30,justifyContent:'center'}}>
+            <TouchableOpacity onPress={()=>openURL('https://www.facebook.com')}>
+                <Icon name="facebook" size={30} color={'white'}/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>openURL('https://www.instagram.com')}>
+                <Icon name="instagram" size={30} color={'white'} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>openURL('https://www.google.com')}>
+                <Icon name="google" size={30} color={'white'}/>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Icon name="phone" size={30} color={'white'} />
+            </TouchableOpacity>
+        </View>
+        
+      
 
         </View>
         </ImageBackground>
@@ -51,6 +70,7 @@ const styles = StyleSheet.create({
    title: {
     textAlign: "center",
     fontSize: 30,
+    color:'white',
     padding: 10,
     fontWeight: "bold",
   },
@@ -79,6 +99,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     padding: 10,
     color:'white',
+    fontWeight:'bold',
+    
   },
   background: {
     height:'auto',
