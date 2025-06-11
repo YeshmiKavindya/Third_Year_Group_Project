@@ -1,7 +1,11 @@
+import { ImageBackground } from "expo-image";
 import { View ,StyleSheet,Text,TextInput,TouchableOpacity} from "react-native";
+import { Link } from "expo-router";
 export default function Login() {
   return (
     <View style={styles.container}>
+    <ImageBackground source={require('../assets/images/loginimg.png')}
+    style={styles.background}>
         <View style={styles.card}>
             <Text style={styles.title}>Login</Text>
             <TextInput placeholder="Username" style={styles.input} />
@@ -14,8 +18,16 @@ export default function Login() {
             Forgot Password?
           </Text>
           </TouchableOpacity>
+          <Text style={styles.text}>
+          Don't have an account?{" "}
+          <Link href={"/signup"} style={styles.link}>
+            register now
+          </Link>
+        </Text>
+        <View style={styles.line} />
 
         </View>
+        </ImageBackground>
     
     </View>
   )
@@ -25,7 +37,7 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "orange",
+    
     flex: 1,
     flexDirection: "row",
     justifyContent: "center",
@@ -66,5 +78,23 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     padding: 10,
+    color:'white',
   },
+  background: {
+    height:'auto',
+    width:'auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  link:{
+    color: "#D2B48C",
+    fontWeight:'bold',
+
+  },
+  line: {
+    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    marginVertical: 10,
+  },
+  
 })
