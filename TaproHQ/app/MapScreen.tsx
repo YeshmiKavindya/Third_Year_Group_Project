@@ -5,12 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const MapScreen = ({ navigation }) => {
   const [searchText, setSearchText] = useState('');
   
-  const stores = [
-    { id: '1', name: 'Pizza Delight', distance: '5 km', image: require('./assets/store1.jpg') },
-    { id: '2', name: 'Bake House', distance: '10 km', image: require('./assets/store2.jpg') },
-    { id: '3', name: 'Fresh Mart', distance: '2 km', image: require('./assets/store3.jpg') },
-    { id: '4', name: 'Electro World', distance: '7 km', image: require('./assets/store4.jpg') },
-  ];
+  
 
   return (
     <SafeAreaView style={styles.container}>
