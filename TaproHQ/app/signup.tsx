@@ -11,6 +11,11 @@ export default function Index() {
           <Text style={styles.title}>Sign Up</Text>
           <TextInput placeholder="Username" style={styles.input} />
           <TextInput placeholder="Email" style={styles.input} />
+          <View style={styles.picker}>
+                  <Picker >
+                  <Picker.Item label="Customer" value="customer" />
+                  <Picker.Item label="Store Owner" value="storeOwner" />
+                </Picker>
           <TextInput placeholder="New -Password" style={styles.input} />
           <TextInput placeholder="Confirm-Password" style={styles.input} />
 
@@ -54,6 +59,15 @@ const styles = Stylesheet.create({
     borderWidth: 2,
     paddingHorizontal: 10,
     backgroundColor: "white",
+  },
+    picker:{
+    marginBottom: 15,
+    height: 55,
+    width: 280,
+    backgroundColor: "white",
+    borderRadius:14,
+    borderWidth:2,
+
   },
 
 })
