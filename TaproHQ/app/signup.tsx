@@ -10,7 +10,9 @@ export default function Index() {
         <View style={styles.card}>
           <Text style={styles.title}>Sign Up</Text>
           <TextInput placeholder="Username" style={styles.input} />
-
+          <TextInput placeholder="Email" style={styles.input} />
+          <TextInput placeholder="New -Password" style={styles.input} />
+          <TextInput placeholder="Confirm-Password" style={styles.input} />
 
         </View>
       </ImageBackground>
