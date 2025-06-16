@@ -7,6 +7,10 @@ export default function Index() {
     <View style ={StyleSheet.container}>
       <ImageBackground source={require('../assets/images/loginimg.png')}
       style={styles.background}>
+        <View style={styles.card}>
+
+        </View>
+
 
       </ImageBackground>
     </View>
@@ -27,6 +31,11 @@ const styles = Stylesheet.create({
     padding:40,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+   card: {
+    padding: 20,
+    borderRadius: 14,
+    justifyContent: "center",
   },
 
 })
