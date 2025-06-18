@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import { Link, router } from "expo-router"; // Import `router` from expo-router
 import Icon from 'react-native-vector-icons/FontAwesome';
+import React from 'react';
 
 export default function Login() {
   const handleLogin = () => {
@@ -12,20 +13,21 @@ export default function Login() {
     <View style={styles.container}>
       <Text style={styles.headerText}>Login</Text>
       
-      {/* Username Field */}
+      
       <TextInput
         style={styles.input}
         placeholder="Username"
       />
       
-      {/* Password Field */}
+   
       <TextInput
         style={styles.input}
         placeholder="Password"
         secureTextEntry
+
       />
       
-      {/* Login Button */}
+     
       <TouchableOpacity 
         style={styles.loginButton} 
         onPress={handleLogin} // Call handleLogin on press
@@ -33,17 +35,16 @@ export default function Login() {
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
       
-      {/* Forgot Password Link */}
+      <Text></Text>
       <Link href="/ForgotPassword" style={styles.link}>
         Forgot Password?
       </Link>
       
-      {/* Register Link */}
+     
       <View style={styles.registerContainer}>
-        <Text>Don't have an account? </Text>
-        <Link href="/Register" style={styles.link}>
-          Register now
-        </Link>
+        <Text>Don't have an account?  <Link href="/Register" style={styles.link}>Register now</Link> </Text>
+        
+      
       </View>
     </View>
   );
@@ -70,20 +71,22 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   loginButton: {
-    backgroundColor: '#3498db',
-    padding: 15,
-    borderRadius: 8,
-    alignItems: 'center',
-    marginTop: 10,
+    justifyContent: "center",
+    backgroundColor: "gray",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    height: 55,
   },
   loginButtonText: {
     color: 'white',
     fontWeight: 'bold',
+    textAlign:'center',
   },
   link: {
-    color: '#3498db',
-    marginTop: 15,
-    textAlign: 'center',
+    color: "#D2B48C",
+    fontWeight:'bold',
+    textAlign:'center',
   },
   registerContainer: {
     flexDirection: 'row',
