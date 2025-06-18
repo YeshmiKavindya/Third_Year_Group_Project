@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity,ImageBackground } from "react-native";
 import { Link, router } from "expo-router"; // Import `router` from expo-router
 import Icon from 'react-native-vector-icons/FontAwesome';
 import React from 'react';
@@ -11,6 +11,8 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
+      <ImageBackground source={require('../assets/loginimg.png')}>
+      <View style={styles.card}>
       <Text style={styles.headerText}>Login</Text>
       
       
@@ -46,6 +48,8 @@ export default function Login() {
         
       
       </View>
+      </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -56,7 +60,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
+  card: {
+    padding: 20,
+    borderRadius: 14,
+    justifyContent: "center",
+  },
   headerText: {
+    color:'white',
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
@@ -92,5 +102,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     marginTop: 20,
+  },
+  backGround:{
+    height:'auto',
+    width:'auto',
+    padding:40,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
