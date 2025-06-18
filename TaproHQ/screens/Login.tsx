@@ -47,6 +47,8 @@ export default function Login() {
         <Text style={styles.text}>Don't have an account?  <Link href="/Register" style={styles.link}>Register now</Link> </Text>
       </View>
 
+      <View style={styles.line} />
+
 
       </View>
       </ImageBackground>
@@ -115,5 +117,10 @@ const styles = StyleSheet.create({
     padding: 10,
     color:"white",
     fontWeight:'bold',
+  },
+   line: {
+    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    marginVertical: 10,
   },
 });
