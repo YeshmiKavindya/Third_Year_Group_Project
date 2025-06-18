@@ -44,10 +44,10 @@ export default function Login() {
       
      
       <View style={styles.registerContainer}>
-        <Text>Don't have an account?  <Link href="/Register" style={styles.link}>Register now</Link> </Text>
-        
-      
+        <Text style={styles.text}>Don't have an account?  <Link href="/Register" style={styles.link}>Register now</Link> </Text>
       </View>
+
+
       </View>
       </ImageBackground>
     </View>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 20,
+    flexDirection: "row",
   },
   card: {
     padding: 20,
@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
   input: {
     marginBottom: 15,
     height: 55,
-    
     borderRadius: 14,
     borderWidth: 2,
     paddingHorizontal: 10,
@@ -110,5 +109,11 @@ const styles = StyleSheet.create({
     padding:40,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  text: {
+    textAlign: "center",
+    padding: 10,
+    color:"white",
+    fontWeight:'bold',
   },
 });
