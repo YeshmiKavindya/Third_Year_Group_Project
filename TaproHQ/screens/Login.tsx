@@ -49,19 +49,19 @@ export default function Login() {
 
       <View style={styles.line} />
              <View style={{flexDirection: "row", gap:30,justifyContent:'center'}}>
-                                    <TouchableOpacity onPress={()=>openURL('https://www.facebook.com')}>
-                                        <Icon name="facebook" size={30} color={'white'}/>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity onPress={()=>openURL('https://www.instagram.com')}>
-                                        <Icon name="instagram" size={30} color={'white'} />
-                                    </TouchableOpacity>
-                                    <TouchableOpacity onPress={()=>openURL('https://www.google.com')}>
-                                        <Icon name="google" size={30} color={'white'}/>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity>
-                                        <Icon name="phone" size={30} color={'white'} />
-                                    </TouchableOpacity>
-                                </View>
+                  <TouchableOpacity onPress={()=>openURL('https://www.facebook.com')}>
+                      <Icon name="facebook" size={30} color={'white'}/>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={()=>openURL('https://www.instagram.com')}>
+                      <Icon name="instagram" size={30} color={'white'} />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={()=>openURL('https://www.google.com')}>
+                      <Icon name="google" size={30} color={'white'}/>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                      <Icon name="phone" size={30} color={'white'} />
+                  </TouchableOpacity>
+              </View>
 
 
       </View>
