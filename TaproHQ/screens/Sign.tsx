@@ -1,5 +1,7 @@
 import { Text, View,Stylesheet ,ImageBackground} from "react-native";
 import { Link } from "expo-router";
+import Login from './Login';
+
 
 
 export default function Index() {

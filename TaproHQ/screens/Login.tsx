@@ -6,7 +6,7 @@ import React from 'react';
 export default function Login() {
   const handleLogin = () => {
     // Redirect to Home page after login
-    router.replace('/Home'); // Replace current screen with Home
+    router.replace('/Sign'); // Replace current screen with Home
   };
 
   return (
@@ -48,6 +48,20 @@ export default function Login() {
       </View>
 
       <View style={styles.line} />
+             <View style={{flexDirection: "row", gap:30,justifyContent:'center'}}>
+                                    <TouchableOpacity onPress={()=>openURL('https://www.facebook.com')}>
+                                        <Icon name="facebook" size={30} color={'white'}/>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={()=>openURL('https://www.instagram.com')}>
+                                        <Icon name="instagram" size={30} color={'white'} />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={()=>openURL('https://www.google.com')}>
+                                        <Icon name="google" size={30} color={'white'}/>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity>
+                                        <Icon name="phone" size={30} color={'white'} />
+                                    </TouchableOpacity>
+                                </View>
 
 
       </View>
