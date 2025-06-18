@@ -11,7 +11,7 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../assets/loginimg.png')}>
+      <ImageBackground source={require('../assets/loginimg.png')} style={styles.backGround} resizeMode="cover">
       <View style={styles.card}>
       <Text style={styles.headerText}>Login</Text>
       
@@ -73,12 +73,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
-    padding: 10,
     marginBottom: 15,
+    height: 55,
+    
+    borderRadius: 14,
+    borderWidth: 2,
+    paddingHorizontal: 10,
+    backgroundColor: "white",
   },
   loginButton: {
     justifyContent: "center",
