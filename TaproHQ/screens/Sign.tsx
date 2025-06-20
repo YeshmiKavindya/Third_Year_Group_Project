@@ -11,7 +11,7 @@ import { openURL } from "expo-linking";
 
 
 export default function Signup() {
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
   return (
     <View style ={styles.container}>
       <ImageBackground source={require('../assets/loginimg.png')}

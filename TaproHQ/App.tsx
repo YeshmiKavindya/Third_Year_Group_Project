@@ -20,12 +20,17 @@ export default function App() {
         <Stack.Screen 
           name="Login" 
           component={Login} 
-          options={{ headerShown: false }} 
+          options={{ headerShown: false,
+    //          headerStyle: {
+    //   backgroundColor: 'gray', 
+    // },
+          }
+        } 
         />
         <Stack.Screen 
           name="Sign" 
           component={Signup} 
-          options={{ headerShown: false }} 
+          options={{ headerShown: false}} 
         />
 
 

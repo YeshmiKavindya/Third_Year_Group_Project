@@ -8,11 +8,12 @@ import Signup from "./Sign";
 
 
 export default function Login() {
+  const navigation = useNavigation() as any;
   const handleLogin = () => {
     // Redirect to Home page after login
-    router.replace('./Sign'); // Replace current screen with Home
+    navigation.replace('./Sign'); // Replace current screen with Home
   };
-  const navigation = useNavigation();
+  
 
 
   return (
