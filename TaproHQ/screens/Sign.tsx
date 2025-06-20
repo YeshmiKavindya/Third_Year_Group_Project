@@ -1,7 +1,7 @@
-import { Text, View,Stylesheet ,ImageBackground} from "react-native";
+import { Text, View, StyleSheet,ImageBackground,TextInput} from "react-native";
 import { Link } from "expo-router";
 import Login from './Login';
-
+import React from "react";
 
 
 export default function Index() {
@@ -30,7 +30,7 @@ export default function Index() {
 
 
 
-const styles = Stylesheet.create({
+const styles = StyleSheet.create({
   container:{
     flex:1,
     flexDirection:"row",
