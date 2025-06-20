@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     width: 280,
     backgroundColor: "white",
     borderRadius:14,
+    borderWidth: 2,
     
 
   },
