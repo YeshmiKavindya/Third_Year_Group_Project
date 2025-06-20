@@ -6,7 +6,7 @@ import React from "react";
 
 export default function Index() {
   return (
-    <View style ={StyleSheet.container}>
+    <View style ={styles.container}>
       <ImageBackground source={require('../assets/images/loginimg.png')}
       style={styles.background}>
         <View style={styles.card}>
