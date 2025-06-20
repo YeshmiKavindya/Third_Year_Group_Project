@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text, TextInput, TouchableOpacity,ImageBackground } from "react-native";
 import { Link, router } from "expo-router"; // Import `router` from expo-router
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { openURL } from 'expo-linking';
 import React from 'react';
 
 export default function Login() {
