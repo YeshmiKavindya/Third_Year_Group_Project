@@ -2,6 +2,8 @@ import { Text, View, StyleSheet,ImageBackground,TextInput} from "react-native";
 import { Link } from "expo-router";
 import Login from './Login';
 import React from "react";
+import { Picker } from '@react-native-picker/picker';
+
 
 
 export default function Index() {
