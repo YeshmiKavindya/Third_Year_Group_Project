@@ -17,11 +17,11 @@ export default function App() {
       />
 
       <Stack.Navigator initialRouteName="Sign">
-        {/* <Stack.Screen 
+        <Stack.Screen 
           name="Login" 
           component={Login} 
           options={{ headerShown: false }} 
-        /> */}
+        />
         <Stack.Screen 
           name="Sign" 
           component={Signup} 

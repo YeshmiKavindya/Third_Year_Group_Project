@@ -52,7 +52,7 @@ export default function Login() {
       <View style={styles.registerContainer}>
         <Text style={styles.text}>Don't have an account? 
         <Text style={styles.link} 
-         onPress={() => navigation.navigate('./Sign')}
+         onPress={() => navigation.navigate('Sign')}
         >{' '}Register now</Text> </Text>
       </View>
 

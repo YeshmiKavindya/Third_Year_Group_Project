@@ -35,7 +35,13 @@ export default function Signup() {
                   <Text style={styles.loginButtonText}>Signup</Text>
           </TouchableOpacity>
           <View style={styles.line} />
-          <View style={{flexDirection: "row", gap:30,justifyContent:'center'}}>
+          <View style={styles.registerContainer}>
+                  <Text style={styles.text}>Do you have an account?   
+                  <Text style={styles.link} 
+                   onPress={() => navigation.navigate('Login')}
+                  >{' '}Login here</Text> </Text>
+                </View>
+          <View style={{flexDirection: "row", gap:20,justifyContent:'center'}}>
                   <TouchableOpacity onPress={()=>openURL('https://www.facebook.com')}>
                       <FontAwesome name="facebook" size={30} color={'white'}/>
                   </TouchableOpacity>
@@ -85,6 +91,12 @@ const styles = StyleSheet.create({
     padding: 10,
     fontWeight: "bold",
   },
+   text: {
+    textAlign: "center",
+    padding: 2,
+    color:"white",
+    fontWeight:'bold',
+  },
    input: {
     marginBottom: 15,
     height: 50,
@@ -119,6 +131,16 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign:'center',
+  },
+    link: {
+    color: "#D2B48C",
+    fontWeight:'bold',
+    textAlign:'center',
+  },
+  registerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
   },
 
 })
