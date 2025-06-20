@@ -1,14 +1,19 @@
 import { View, StyleSheet, Text, TextInput, TouchableOpacity,ImageBackground } from "react-native";
-import { Link, router } from "expo-router"; // Import `router` from expo-router
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { openURL } from 'expo-linking';
+import { Link, router } from "expo-router"; 
+import { FontAwesome } from '@expo/vector-icons';
 import React from 'react';
+import { openURL } from "expo-linking";
+import { useNavigation } from '@react-navigation/native';
+import Signup from "./Sign";
+
 
 export default function Login() {
   const handleLogin = () => {
     // Redirect to Home page after login
     router.replace('/Sign'); // Replace current screen with Home
   };
+  const navigation = useNavigation();
+
 
   return (
     <View style={styles.container}>
@@ -45,22 +50,25 @@ export default function Login() {
       
      
       <View style={styles.registerContainer}>
-        <Text style={styles.text}>Don't have an account?  <Link href="/Register" style={styles.link}>Register now</Link> </Text>
+        <Text style={styles.text}>Don't have an account? 
+        <Text style={styles.link} 
+         onPress={() => navigation.navigate('Sign')}
+        >{' '}Register now</Text> </Text>
       </View>
 
       <View style={styles.line} />
              <View style={{flexDirection: "row", gap:30,justifyContent:'center'}}>
                   <TouchableOpacity onPress={()=>openURL('https://www.facebook.com')}>
-                      <Icon name="facebook" size={30} color={'white'}/>
+                      <FontAwesome name="facebook" size={30} color={'white'}/>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={()=>openURL('https://www.instagram.com')}>
-                      <Icon name="instagram" size={30} color={'white'} />
+                      <FontAwesome name="instagram" size={30} color={'white'} />
                   </TouchableOpacity>
                   <TouchableOpacity onPress={()=>openURL('https://www.google.com')}>
-                      <Icon name="google" size={30} color={'white'}/>
+                      <FontAwesome name="google" size={30} color={'white'}/>
                   </TouchableOpacity>
                   <TouchableOpacity>
-                      <Icon name="phone" size={30} color={'white'} />
+                      <FontAwesome name="phone" size={30} color={'white'} />
                   </TouchableOpacity>
               </View>
 

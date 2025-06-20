@@ -6,10 +6,10 @@ import { Picker } from '@react-native-picker/picker';
 
 
 
-export default function Index() {
+export default function Signup() {
   return (
     <View style ={styles.container}>
-      <ImageBackground source={require('../assets/images/loginimg.png')}
+      <ImageBackground source={require('../assets/loginimg.png')}
       style={styles.background}>
         <View style={styles.card}>
           <Text style={styles.title}>Sign Up</Text>
