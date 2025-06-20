@@ -4,6 +4,9 @@ import Login from './Login';
 import React from "react";
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
+import { FontAwesome } from '@expo/vector-icons';
+import { openURL } from "expo-linking";
+
 
 
 
@@ -32,6 +35,20 @@ export default function Signup() {
                   <Text style={styles.loginButtonText}>Signup</Text>
           </TouchableOpacity>
           <View style={styles.line} />
+          <View style={{flexDirection: "row", gap:30,justifyContent:'center'}}>
+                  <TouchableOpacity onPress={()=>openURL('https://www.facebook.com')}>
+                      <FontAwesome name="facebook" size={30} color={'white'}/>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={()=>openURL('https://www.instagram.com')}>
+                      <FontAwesome name="instagram" size={30} color={'white'} />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={()=>openURL('https://www.google.com')}>
+                      <FontAwesome name="google" size={30} color={'white'}/>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                      <FontAwesome name="phone" size={30} color={'white'} />
+                  </TouchableOpacity>
+              </View>
 
         </View>
 
