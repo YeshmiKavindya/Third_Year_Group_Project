@@ -1,12 +1,14 @@
-import { Text, View, StyleSheet,ImageBackground,TextInput} from "react-native";
+import { Text, View, StyleSheet,ImageBackground,TextInput,TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import Login from './Login';
 import React from "react";
+import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 
 
 
 export default function Signup() {
+  const navigation = useNavigation();
   return (
     <View style ={styles.container}>
       <ImageBackground source={require('../assets/loginimg.png')}
@@ -23,8 +25,17 @@ export default function Signup() {
                 
           <TextInput placeholder="New -Password" style={styles.input} />
           <TextInput placeholder="Confirm-Password" style={styles.input} />
+          <TouchableOpacity 
+                  style={styles.loginButton} 
+                  // onPress={handleLogin} // Call handleLogin on press
+                >
+                  <Text style={styles.loginButtonText}>Signup</Text>
+          </TouchableOpacity>
+          <View style={styles.line} />
 
         </View>
+
+        
       </ImageBackground>
     </View>
   );
@@ -59,7 +70,7 @@ const styles = StyleSheet.create({
   },
    input: {
     marginBottom: 15,
-    height: 55,
+    height: 50,
     width: 280,
     borderRadius: 14,
     borderWidth: 2,
@@ -68,13 +79,29 @@ const styles = StyleSheet.create({
   },
     picker:{
     marginBottom: 15,
-    height: 55,
+    height: 50,
     width: 280,
     backgroundColor: "white",
     borderRadius:14,
     borderWidth: 2,
-    
-
+  },
+   line: {
+    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    marginVertical: 10,
+  },
+    loginButton: {
+    justifyContent: "center",
+    backgroundColor: "gray",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    height: 55,
+  },
+  loginButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign:'center',
   },
 
 })
