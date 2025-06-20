@@ -15,12 +15,12 @@ export default function Signup() {
           <Text style={styles.title}>Sign Up</Text>
           <TextInput placeholder="Username" style={styles.input} />
           <TextInput placeholder="Email" style={styles.input} />
-          <View style={styles.picker}>
-                  <Picker >
-                  <Picker.Item label="Customer" value="customer" />
-                  <Picker.Item label="Store Owner" value="storeOwner" />
-                </Picker>
-                </View>
+          
+          <Picker style={styles.picker} >
+            <Picker.Item label="Customer" value="customer" />
+            <Picker.Item label="Store Owner" value="storeOwner" />
+          </Picker>
+                
           <TextInput placeholder="New -Password" style={styles.input} />
           <TextInput placeholder="Confirm-Password" style={styles.input} />
 
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   },
    title: {
     textAlign: "center",
+    color:'white',
     fontSize: 30,
     padding: 10,
     fontWeight: "bold",
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     width: 280,
     backgroundColor: "white",
     borderRadius:14,
-    borderWidth:2,
+    
 
   },
 
