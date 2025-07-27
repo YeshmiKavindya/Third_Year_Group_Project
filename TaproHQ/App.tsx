@@ -1,8 +1,11 @@
 import { View, Text,StatusBar } from 'react-native';
-import Login from './screens/Login';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Signup from './screens/Sign';
+import Login from './screens/Login';
+import HomeScreen from './screens/Home';
+import CustomerSettingsScreen from './screens/CustomerSettingsScreen';
+import SellerSettingsScreen from './screens/SellerSettingsScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -16,24 +19,13 @@ export default function App() {
         hidden={false}
       />
 
-      <Stack.Navigator initialRouteName="Sign">
+      <Stack.Navigator initialRouteName="Home">
 
-        
-        <Stack.Screen 
-          name="Login" 
-          component={Login} 
-          options={{ headerShown: false,
-    //          headerStyle: {
-    //   backgroundColor: 'gray', 
-    // },
-          }
-        } 
-        />
-        <Stack.Screen 
-          name="Sign" 
-          component={Signup} 
-          options={{ headerShown: false}} 
-        />
+        <Stack.Screen name="Home" component={HomeScreen} /> 
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false, /* headerStyle: { backgroundColor: 'gray', },*/}} />
+        <Stack.Screen name="Sign" component={Signup} options={{ headerShown: false}} />
+        <Stack.Screen name="CustomerSettings" component={CustomerSettingsScreen} />
+        <Stack.Screen name="SellerSettings" component={SellerSettingsScreen} options={{ headerShown: false }} />
 
 
       </Stack.Navigator>
@@ -70,3 +62,6 @@ export default function App() {
     </NavigationContainer>
 
 */
+
+
+
