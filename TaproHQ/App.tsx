@@ -17,6 +17,8 @@ export default function App() {
       />
 
       <Stack.Navigator initialRouteName="Sign">
+
+        
         <Stack.Screen 
           name="Login" 
           component={Login} 

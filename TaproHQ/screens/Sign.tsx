@@ -1,17 +1,18 @@
 import { Text, View, StyleSheet,ImageBackground,TextInput,TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import Login from './Login';
-import React from "react";
+import React,{ useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import { FontAwesome } from '@expo/vector-icons';
 import { openURL } from "expo-linking";
 
-
-
-
 export default function Signup() {
   const navigation = useNavigation() as any;
+
+  const [role, setRole] = useState('');
+  const [location, setLocation] = useState('');
+
   return (
     <View style ={styles.container}>
       <ImageBackground source={require('../assets/loginimg.png')}
@@ -21,10 +22,23 @@ export default function Signup() {
           <TextInput placeholder="Username" style={styles.input} />
           <TextInput placeholder="Email" style={styles.input} />
           
-          <Picker style={styles.picker} >
+          <Picker style={styles.picker}
+            selectedValue={role}
+            onValueChange={(value) => setRole(value)}
+            >
             <Picker.Item label="Customer" value="customer" />
             <Picker.Item label="Store Owner" value="storeOwner" />
           </Picker>
+
+          {role === 'storeOwner' && (
+            <TextInput
+              placeholder="Enter your location"
+              value={location}
+              onChangeText={setLocation}
+              style={styles.input}
+            />
+          )}
+          
                 
           <TextInput placeholder="New -Password" style={styles.input} />
           <TextInput placeholder="Confirm-Password" style={styles.input} />
