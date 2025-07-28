@@ -6,8 +6,7 @@ import { openURL } from "expo-linking";
 import { useNavigation } from '@react-navigation/native';
 import Signup from "./SignupScreen";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
+import { getApiUrl, API_CONFIG } from '../constants/api';
 
 export default function Login() {
 
@@ -19,16 +18,55 @@ export default function Login() {
       }
     }
     checkAuth();
+      }, []);
 
 
   const navigation = useNavigation() as any;
-  const handleLogin = () => {
-    // Redirect to Home page after login
-    navigation.replace('./Sign'); // Replace current screen with Home
-  };
-  }, []);
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+   const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert('Error', 'Please enter both email and password');
+      return;
+    }
 
+    console.log("Email:",email,"password:",password);
+
+    try {
+      const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.LOGIN), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Login successful
+        await AsyncStorage.setItem("authorization", data.token);
+        console.log("token:",data.token);
+        await AsyncStorage.setItem("x-user-email", email);
+        console.log("user_type:",data.user.user_type);
+        await AsyncStorage.setItem("x-user-type", data.user.user_type);
+        await AsyncStorage.setItem("x-username", data.user.user_name);
+        Alert.alert('Success', 'Login successful!');
+        navigation.replace('Home'); // Navigate to Home screen
+      } else {
+        // Login failed
+        Alert.alert('Error', data.message || 'Login failed. Please check your credentials.');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      Alert.alert('Error', 'Network error. Please check your connection and try again.');
+    }
+  };
+
+  
 
   return (
     <View style={styles.container}>
@@ -40,6 +78,10 @@ export default function Login() {
       <TextInput
         style={styles.input}
         placeholder="Username"
+        value={email}
+        onChangeText={setEmail}
+       // keyboardType="small-address"
+        autoCapitalize="none"
       />
       
    
@@ -47,7 +89,8 @@ export default function Login() {
         style={styles.input}
         placeholder="Password"
         secureTextEntry
-
+         value={password}
+        onChangeText={setPassword}
       />
       
      
