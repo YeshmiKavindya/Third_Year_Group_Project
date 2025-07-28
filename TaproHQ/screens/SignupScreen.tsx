@@ -101,11 +101,25 @@ export default function Signup() {
           )}
           
                 
-          <TextInput placeholder="New -Password" style={styles.input} />
-          <TextInput placeholder="Confirm-Password" style={styles.input} />
+          <TextInput 
+          placeholder="New -Password" 
+          style={styles.input}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+
+           />
+          <TextInput 
+          placeholder="Confirm-Password" 
+          style={styles.input}
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
+          secureTextEntry 
+          
+          />
           <TouchableOpacity 
                   style={styles.loginButton} 
-                  // onPress={handleLogin} // Call handleLogin on press
+                  onPress={handleSignup} 
                 >
                   <Text style={styles.loginButtonText}>Signup</Text>
           </TouchableOpacity>
