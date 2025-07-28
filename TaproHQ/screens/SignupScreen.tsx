@@ -1,17 +1,78 @@
-import { Text, View, StyleSheet,ImageBackground,TextInput,TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet,ImageBackground,Alert,TextInput,TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
 import Login from './LoginScreen';
-import React,{ useState } from "react";
+import React,{ useEffect,useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import { FontAwesome } from '@expo/vector-icons';
 import { openURL } from "expo-linking";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getApiUrl, API_CONFIG } from '../constants/api';
 
 export default function Signup() {
   const navigation = useNavigation() as any;
 
-  const [role, setRole] = useState('');
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [userType, setUserType] = useState('customer');
   const [location, setLocation] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const token = await AsyncStorage.getItem('authorization');
+      if(token){
+        navigation.replace('Home');
+      }
+    }
+    checkAuth();
+  }, []);
+
+  const handleSignup = async () => {
+    if (!userName || !email || !password || !confirmPassword) {
+      Alert.alert('Error', 'Please fill in all required fields');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match');
+      return;
+    }
+
+    if (userType === 'storeOwner' && !location) {
+      Alert.alert('Error', 'Location is required for store owners');
+      return;
+    }
+
+    try {
+      const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.SIGNUP), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_name: userName,
+          email,
+          user_type: userType,
+          password,
+          location: userType === 'storeOwner' ? location : undefined
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        Alert.alert('Success', 'Registration successful!');
+        navigation.navigate('Login');
+      } else {
+        Alert.alert('Error', data.message || 'Registration failed');
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      Alert.alert('Error', 'Network error. Please try again.');
+    }
+  };
 
   return (
     <View style ={styles.container}>
@@ -23,8 +84,8 @@ export default function Signup() {
           <TextInput placeholder="Email" style={styles.input} />
           
           <Picker style={styles.picker}
-            selectedValue={role}
-            onValueChange={(value) => setRole(value)}
+            selectedValue={userType}
+            onValueChange={(value) => setUserType(value)}
             >
             <Picker.Item label="Customer" value="customer" />
             <Picker.Item label="Store Owner" value="storeOwner" />
