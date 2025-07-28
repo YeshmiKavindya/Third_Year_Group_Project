@@ -1,13 +1,26 @@
-import { View, StyleSheet, Text, TextInput, TouchableOpacity,ImageBackground } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity,ImageBackground,Alert } from "react-native";
 import { Link, router } from "expo-router"; 
 import { FontAwesome } from '@expo/vector-icons';
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
 import { openURL } from "expo-linking";
 import { useNavigation } from '@react-navigation/native';
 import Signup from "./SignupScreen";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 export default function Login() {
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const token = await AsyncStorage.getItem('authorization');
+      if(token){
+        navigation.replace('Home');
+      }
+    }
+    checkAuth();
+
+
   const navigation = useNavigation() as any;
   const handleLogin = () => {
     // Redirect to Home page after login
