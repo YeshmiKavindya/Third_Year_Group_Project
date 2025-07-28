@@ -7,6 +7,7 @@ import HomeScreen from './screens/Home';
 import CustomerSettingsScreen from './screens/CustomerSettingsScreen';
 import SellerSettingsScreen from './screens/SellerSettingsScreen';
 import SellerItemEdit from './screens/SellerItemEdit';
+import SellerItemAddition from './screens/SellerItemAddition';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
         <Stack.Screen name="CustomerSettings" component={CustomerSettingsScreen} />
         <Stack.Screen name="SellerSettings" component={SellerSettingsScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SellerItemEdit" component={SellerItemEdit} />
+        <Stack.Screen name="SellerItemAddition" component={SellerItemAddition} />
            
       </Stack.Navigator>
       
