@@ -91,7 +91,7 @@ export default function Signup() {
             <Picker.Item label="Store Owner" value="storeOwner" />
           </Picker>
 
-          {role === 'storeOwner' && (
+          {userType === 'storeOwner' && (
             <TextInput
               placeholder="Enter your location"
               value={location}
