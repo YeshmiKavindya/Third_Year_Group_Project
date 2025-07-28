@@ -80,7 +80,7 @@ export default function Login() {
         placeholder="Username"
         value={email}
         onChangeText={setEmail}
-       // keyboardType="small-address"
+        keyboardType="emall-address"
         autoCapitalize="none"
       />
       
