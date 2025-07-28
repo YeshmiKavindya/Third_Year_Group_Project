@@ -1,7 +1,7 @@
 import { View, StyleSheet, Text, TextInput, TouchableOpacity,ImageBackground,Alert } from "react-native";
 import { Link, router } from "expo-router"; 
 import { FontAwesome } from '@expo/vector-icons';
-import React,{ useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { openURL } from "expo-linking";
 import { useNavigation } from '@react-navigation/native';
 import Signup from "./SignupScreen";
@@ -26,6 +26,7 @@ export default function Login() {
     // Redirect to Home page after login
     navigation.replace('./Sign'); // Replace current screen with Home
   };
+  }, []);
   
 
 
