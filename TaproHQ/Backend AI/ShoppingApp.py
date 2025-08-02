@@ -103,3 +103,11 @@ return jsonify({
             'retail_price': round(retail_price, 2),
             'nearby_wholesalers': nearby_wholesalers
         })
+
+except ValueError as ve:
+        return jsonify({'error': str(ve)}), 400
+    except Exception as e:
+        return jsonify({'error': f"Server error: {str(e)}"}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
