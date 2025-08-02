@@ -105,3 +105,15 @@ const SellerItemEdit = (props: any) => {
       });
 
       const data = await response.json();
+
+      if (response.ok) {
+        Alert.alert('Success', data.message || 'Item updated successfully!');
+      } else {
+        const errorMsg = data.error || data.message || 'Failed to update item';
+        Alert.alert('Error', errorMsg);
+      }
+    } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : 'An unknown error occurred';
+      Alert.alert('Error', errorMsg);
+    }
+  };
