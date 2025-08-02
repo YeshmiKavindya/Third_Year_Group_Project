@@ -85,6 +85,25 @@ const SellerItemEdit = (props: any) => {
       login_date: item.login_date
     };
 
+  try {
+      const token = await AsyncStorage.getItem('authorization');
+      const email = await AsyncStorage.getItem('x-user-email');
+      
+      if (!token || !email) {
+        Alert.alert('Error', 'Authentication required');
+        return;
+      }
+
+      const response = await fetch(getApiUrl(API_CONFIG.ENDPOINTS.UPDATE_ITEM), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': token,
+          'x-email': email,
+        },
+        body: JSON.stringify(updatedItem),
+      });
+
   const addVariant = () => {
     if (!quantity || !variantPrice) {
       Alert.alert('Please enter both quantity and unit price.');
