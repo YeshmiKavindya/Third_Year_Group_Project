@@ -146,7 +146,7 @@ const SellerItemEdit = (props: any) => {
         />
       </View>
 
-      /* Unit Price */}
+      {/* Unit Price */}
       <View style={styles.inputRow}>
         <Text style={styles.label}>Unit Price (LKR. )</Text>
         <TextInput
@@ -156,4 +156,49 @@ const SellerItemEdit = (props: any) => {
           keyboardType="numeric"
           style={styles.inputField}
         />
+      </View>
+
+      {/* Store Type */}
+      <View style={styles.inputRow}>
+        <Text style={styles.label}>Store Type</Text>
+        <View style={[styles.inputField, { flexDirection: 'row', justifyContent: 'space-around' }]}>
+          <TouchableOpacity 
+            style={[
+              styles.storeTypeBtn,
+              storeType === 'wholesaler' && styles.storeTypeSelected
+            ]}
+            onPress={() => setStoreType('wholesaler')}
+          >
+            <Text style={[
+              styles.storeTypeText,
+              storeType === 'wholesaler' && styles.storeTypeTextSelected
+            ]}>Wholesaler</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[
+              styles.storeTypeBtn, 
+              storeType === 'retailer' && styles.storeTypeSelected
+            ]}
+            onPress={() => setStoreType('retailer')}
+          >
+            <Text style={[
+              styles.storeTypeText,
+              storeType === 'retailer' && styles.storeTypeTextSelected  
+            ]}>Retailer</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[
+              styles.storeTypeBtn,
+              storeType === 'both' && styles.storeTypeSelected
+            ]}
+            onPress={() => setStoreType('both')}
+          >
+            <Text style={[
+              styles.storeTypeText,
+              storeType === 'both' && styles.storeTypeTextSelected
+            ]}>Both</Text>
+          </TouchableOpacity>
+        </View>
       </View>
