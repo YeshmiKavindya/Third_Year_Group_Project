@@ -75,3 +75,7 @@ retail_model, wholesale_model = train_price_model(item)
 
 retail_price = retail_model.predict(np.array([[quantity]]))[0]
 wholesale_price = wholesale_model.predict(np.array([[quantity]]))[0]
+
+wholesalers = shops_df[shops_df['shop_type'] == 'wholesale']
+if wholesalers.empty:
+        return jsonify({'error': 'No wholesalers found'}), 404
