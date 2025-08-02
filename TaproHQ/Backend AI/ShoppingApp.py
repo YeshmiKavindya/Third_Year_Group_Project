@@ -59,3 +59,14 @@ def filter_nearby_wholesalers(user_location, item):
             'location': shop['location']
         })
  return nearby_shops
+
+@app.route('/api/check_bulk_order', methods=['POST'])
+def check_bulk_order():
+    try:
+        data = request.get_json()
+        quantity = int(data.get('quantity'))
+        item = data.get('item')
+        location = data.get('location')
+
+        if not all([quantity, item, location]):
+            return jsonify({'error': 'Quantity, item, and location are required'}), 400
