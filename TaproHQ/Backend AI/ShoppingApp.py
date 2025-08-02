@@ -12,3 +12,5 @@ data = {
     'shop_name': ['Retail A', 'Wholesale B', 'Retail C', 'Wholesale D', 'Retail E'],
     'shop_type': ['retail', 'wholesale', 'retail', 'wholesale', 'retail'],
     'location': ['Kandy', 'Horana', 'Vavuniya', 'Jaffna', 'Colombo'],
+
+    'min_quantity': [1, 50, 1, 40, 1], 
