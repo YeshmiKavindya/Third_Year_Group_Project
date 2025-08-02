@@ -22,3 +22,5 @@ const connectDB = async () => {
     console.error("Please check your MONGO_URI in .env file");
     process.exit(1);
   }
+};
+module.exports = connectDB;
