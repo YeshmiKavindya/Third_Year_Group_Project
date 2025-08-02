@@ -1,5 +1,8 @@
-
-import { findOne } from '../models/userAuthentication'; // Import userAuthentication model
+const express = require('express');
+const router = express.Router();
+const { body, validationResult } = require('express-validator');
+const StoreItemsInfo = require('../models/storeItemsInfo'); // Adjust path to your model
+const UserAuthentication = require('../models/userAuthentication'); // Import userAuthentication model
 
 // Authentication middleware
 const authenticate = async (req, res, next) => {
