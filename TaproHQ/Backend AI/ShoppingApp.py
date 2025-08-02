@@ -21,27 +21,27 @@ shops_df = pd.DataFrame(data)
 
 def train_price_model(item):
 
-retail_data = pd.DataFrame({
+ retail_data = pd.DataFrame({
         'quantity': [1, 10, 20, 30, 40],
         'price_per_packet': [250, 245, 240, 235, 230]
     })
-wholesale_data = pd.DataFrame({
+ wholesale_data = pd.DataFrame({
     'quantity': [40,50,100,200,300]
     'price_per_packet':[200,195,190,185,180]
 })
 
-retail_model = LinearRegression()
-retail_model.fit(retail_data[['quantity']], retail_data['price_per_packet'])
+ retail_model = LinearRegression()
+ retail_model.fit(retail_data[['quantity']], retail_data['price_per_packet'])
 
-wholesale_model = LinearRegression()
-wholesale_model.fit(wholesale_data[['quantity']], wholesale_data['price_per_packet'])
+ wholesale_model = LinearRegression()
+ wholesale_model.fit(wholesale_data[['quantity']], wholesale_data['price_per_packet'])
 
-return retail_model, wholesale_model
+ return retail_model, wholesale_model
 
 def calculate_savings(quantity, retail_price, wholesale_price, wholesale_min_quantity):
-if quantity >= wholesale_min_quantity:
+ if quantity >= wholesale_min_quantity:
         wholesale_total = wholesale_price * quantity
         retail_total = retail_price * quantity
         savings = retail_total - wholesale_total
         return savings, wholesale_total
-    return result 
+ return 0,0
