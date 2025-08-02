@@ -47,3 +47,5 @@ def calculate_savings(quantity, retail_price, wholesale_price, wholesale_min_qua
  return 0,0
 
 def filter_nearby_wholesalers(user_location, item):
+ if item != 'milk_packet':
+  return []
