@@ -27,9 +27,9 @@ def train_price_model(item):
         'price_per_packet': [250, 245, 240, 235, 230]
     })
  wholesale_data = pd.DataFrame({
-    'quantity': [40,50,100,200,300]
+    'quantity': [40,50,100,200,300],
     'price_per_packet':[200,195,190,185,180]
-})
+    })
 
  retail_model = LinearRegression()
  retail_model.fit(retail_data[['quantity']], retail_data['price_per_packet'])
