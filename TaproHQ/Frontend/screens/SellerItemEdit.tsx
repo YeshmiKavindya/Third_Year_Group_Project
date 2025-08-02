@@ -44,7 +44,11 @@ const SellerItemEdit = (props: any) => {
     setQuantity('');
     setDiscountPercent('');
   };
-  
+
+  const removeDiscount = (indexToRemove: number) => {
+    const updated = discounts.filter((_, idx) => idx !== indexToRemove);
+    setDiscounts(updated);
+  };
   const addVariant = () => {
     if (!quantity || !variantPrice) {
       Alert.alert('Please enter both quantity and unit price.');
