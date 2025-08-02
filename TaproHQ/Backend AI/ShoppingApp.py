@@ -39,3 +39,9 @@ wholesale_model.fit(wholesale_data[['quantity']], wholesale_data['price_per_pack
 return retail_model, wholesale_model
 
 def calculate_savings(quantity, retail_price, wholesale_price, wholesale_min_quantity):
+if quantity >= wholesale_min_quantity:
+        wholesale_total = wholesale_price * quantity
+        retail_total = retail_price * quantity
+        savings = retail_total - wholesale_total
+        return savings, wholesale_total
+    return 0, 0
