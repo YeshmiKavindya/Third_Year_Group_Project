@@ -117,3 +117,8 @@ const SellerItemEdit = (props: any) => {
       Alert.alert('Error', errorMsg);
     }
   };
+
+  return (
+    <View style={styles.container}>
+      <HeaderBarNew />
+      <Text style={styles.title}>Edit Item</Text>
