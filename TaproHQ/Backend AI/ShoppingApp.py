@@ -72,3 +72,6 @@ def check_bulk_order():
             return jsonify({'error': 'Quantity, item, and location are required'}), 400
         
 retail_model, wholesale_model = train_price_model(item)
+
+retail_price = retail_model.predict(np.array([[quantity]]))[0]
+wholesale_price = wholesale_model.predict(np.array([[quantity]]))[0]
