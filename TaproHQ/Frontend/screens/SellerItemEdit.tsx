@@ -122,3 +122,14 @@ const SellerItemEdit = (props: any) => {
     <View style={styles.container}>
       <HeaderBarNew />
       <Text style={styles.title}>Edit Item</Text>
+
+      {/* Item Name */}
+      <View style={styles.inputRow}>
+        <Text style={styles.label}>Item Name</Text>
+        <TextInput
+          value={itemName}
+          onChangeText={setItemName}
+          placeholder="Enter item name"
+          style={styles.inputField}
+        />
+      </View>
