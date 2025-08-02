@@ -145,3 +145,5 @@ const SellerItemEdit = (props: any) => {
           style={styles.inputField}
         />
       </View>
+
+      
