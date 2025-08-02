@@ -133,3 +133,15 @@ const SellerItemEdit = (props: any) => {
           style={styles.inputField}
         />
       </View>
+
+      {/* Stock */}
+      <View style={styles.inputRow}>
+        <Text style={styles.label}>Stock Quantity</Text>
+        <TextInput
+          value={stock}
+          onChangeText={setStock}
+          placeholder="Enter stock quantity"
+          keyboardType="numeric"
+          style={styles.inputField}
+        />
+      </View>
