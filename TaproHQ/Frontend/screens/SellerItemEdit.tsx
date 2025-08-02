@@ -146,4 +146,14 @@ const SellerItemEdit = (props: any) => {
         />
       </View>
 
-      
+      /* Unit Price */}
+      <View style={styles.inputRow}>
+        <Text style={styles.label}>Unit Price (LKR. )</Text>
+        <TextInput
+          value={unitPrice}
+          onChangeText={setUnitPrice}
+          placeholder="Enter unit price"
+          keyboardType="numeric"
+          style={styles.inputField}
+        />
+      </View>
