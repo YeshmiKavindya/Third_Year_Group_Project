@@ -252,3 +252,101 @@ const SellerItemEdit = (props: any) => {
 
 export default SellerItemEdit;
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+    padding: 20,
+  },
+  title: {
+    fontSize: FONTS.largeTitle,
+    fontWeight: 'bold',
+    color: COLORS.primary,
+    marginVertical: 20,
+  },
+  inputRow: {
+    marginBottom: 15,
+  },
+  label: {
+    fontSize: FONTS.medium,
+    color: COLORS.text,
+    marginBottom: 6,
+  },
+  inputField: {
+    backgroundColor: COLORS.card,
+    padding: 10,
+    borderRadius: 8,
+    fontSize: FONTS.regular,
+  },
+  subTitle: {
+    fontSize: FONTS.heading,
+    color: COLORS.primary,
+    marginTop: 20,
+    marginBottom: 10,
+    fontWeight: 'bold',
+  },
+  variantRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 10,
+  },
+  variantInput: {
+    flex: 1,
+  },
+  addVariantBtn: {
+    backgroundColor: COLORS.primary,
+    padding: 10,
+    borderRadius: 8,
+  },
+  variantItem: {
+    backgroundColor: COLORS.card,
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  recordText: {
+    fontSize: FONTS.regular,
+    color: COLORS.text,
+  },
+  updateBtn: {
+    flexDirection: 'row',
+    backgroundColor: COLORS.primary,
+    padding: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    marginBottom: 80,
+  },
+  updateBtnText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: FONTS.medium,
+  },
+  storeTypeBtn: {
+    padding: 10,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    minWidth: 80,
+    alignItems: 'center',
+  },
+  storeTypeSelected: {
+    backgroundColor: COLORS.primary,
+    borderColor: COLORS.primary,
+  },
+  storeTypeText: {
+    fontSize: FONTS.regular,
+    color: COLORS.text,
+  },
+  storeTypeTextSelected: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+});
+
+
