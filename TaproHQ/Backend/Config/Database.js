@@ -17,3 +17,8 @@ const connectDB = async () => {
     await client.connect();
     console.log("Successfully connected to MongoDB!");
     return client;
+    } catch (error) {
+    console.error("MongoDB connection error:", error);
+    console.error("Please check your MONGO_URI in .env file");
+    process.exit(1);
+  }
