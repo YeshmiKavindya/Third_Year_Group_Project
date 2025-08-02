@@ -45,3 +45,5 @@ def calculate_savings(quantity, retail_price, wholesale_price, wholesale_min_qua
         savings = retail_total - wholesale_total
         return savings, wholesale_total
  return 0,0
+
+def filter_nearby_wholesalers(user_location, item):
