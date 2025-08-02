@@ -7,3 +7,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+data = {
+    'shop_id': [1, 2, 3, 4, 5],
+    'shop_name': ['Retail A', 'Wholesale B', 'Retail C', 'Wholesale D', 'Retail E'],
+    'shop_type': ['retail', 'wholesale', 'retail', 'wholesale', 'retail'],
+    'location': ['Kandy', 'Horana', 'Vavuniya', 'Jaffna', 'Colombo'],
