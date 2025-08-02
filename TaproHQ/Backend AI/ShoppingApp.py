@@ -70,3 +70,5 @@ def check_bulk_order():
 
         if not all([quantity, item, location]):
             return jsonify({'error': 'Quantity, item, and location are required'}), 400
+        
+retail_model, wholesale_model = train_price_model(item)
