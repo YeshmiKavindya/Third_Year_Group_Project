@@ -29,3 +29,6 @@ wholesale_data = pd.Dataframe({
     'quantity': [40,50,100,200,300]
     'price_per_packet':[200,195,190,185,180]
 })
+
+retail_model = LinearRegression()
+retail_model.fit(retail_data[['quantity']], retail_data['price_per_packet'])
