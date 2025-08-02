@@ -1,7 +1,4 @@
-import { Router } from 'express';
-const router = Router();
-import { body, validationResult } from 'express-validator';
-import StoreItemsInfo from '../models/storeItemsInfo'; // Adjust path to your model
+
 import { findOne } from '../models/userAuthentication'; // Import userAuthentication model
 
 // Authentication middleware
