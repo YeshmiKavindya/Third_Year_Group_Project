@@ -80,3 +80,8 @@ wholesale_price = wholesale_model.predict(np.array([[quantity]]))[0]
 wholesalers = shops_df[shops_df['shop_type'] == 'wholesale']
 if wholesalers.empty:
  return jsonify({'error': 'No wholesalers found'}), 404
+
+wholesaler = wholesalers.iloc[0]
+savings, wholesale_total = calculate_savings(
+    quantity, retail_price, wholesale_price, wholesaler['min_quantity']
+        )
