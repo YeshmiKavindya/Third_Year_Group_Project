@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS } from '../constants/theme';
 import HeaderBarNew from '../compos/HeaderBarNew';
+import { API_CONFIG, getApiUrl } from '../constants/api';
 
 const SellerItemEdit = () => {
   const [itemName, setItemName] = useState('');
