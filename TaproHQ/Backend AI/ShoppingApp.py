@@ -16,3 +16,5 @@ data = {
     'min_quantity': [1, 50, 1, 40, 1], 
     'item':['Milk packet','Soap','Chocolate','Biscuit','Napkins']
 }
+
+shops_df = pd.DataFrame(data)
