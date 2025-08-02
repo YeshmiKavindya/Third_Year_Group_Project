@@ -202,3 +202,42 @@ const SellerItemEdit = (props: any) => {
           </TouchableOpacity>
         </View>
       </View>
+
+      {/* Discount Section */}
+      <Text style={styles.subTitle}>Quantity Discounts</Text>
+
+      <View style={styles.variantRow}>
+        <TextInput
+          value={quantity}
+          onChangeText={setQuantity}
+          placeholder="Min Qty"
+          keyboardType="numeric"
+          style={[styles.inputField, styles.variantInput]}
+        />
+        <TextInput
+          value={discountPercent}
+          onChangeText={setDiscountPercent}
+          placeholder="Discount %"
+          keyboardType="numeric"
+          style={[styles.inputField, styles.variantInput]}
+        />
+        <TouchableOpacity style={styles.addVariantBtn} onPress={addDiscount}>
+          <Ionicons name="add" size={20} color="#fff" />
+        </TouchableOpacity>
+      </View>
+
+      <FlatList
+        data={discounts}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={({ item, index }) => (
+          <View style={styles.variantItem}>
+            <Text style={styles.recordText}>
+              Min Qty: {item.minQuantity} - {item.discountPercent}% off
+            </Text>
+            <TouchableOpacity onPress={() => removeDiscount(index)}>
+              <Ionicons name="trash-outline" size={20} color="red" />
+            </TouchableOpacity>
+          </View>
+        )}
+      />
+
