@@ -35,3 +35,5 @@ retail_model.fit(retail_data[['quantity']], retail_data['price_per_packet'])
 
 wholesale_model = LinearRegression()
 wholesale_model.fit(wholesale_data[['quantity']], wholesale_data['price_per_packet'])
+
+return retail_model, wholesale_model
