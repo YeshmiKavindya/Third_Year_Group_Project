@@ -15,3 +15,4 @@ const connectDB = async () => {
     });
  
     await client.connect();
+    console.log("Successfully connected to MongoDB!");
