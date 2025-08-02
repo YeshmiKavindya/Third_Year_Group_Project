@@ -13,3 +13,5 @@ const connectDB = async () => {
         deprecationErrors: true,
       }
     });
+ 
+    await client.connect();
