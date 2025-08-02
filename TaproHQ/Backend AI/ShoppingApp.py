@@ -49,3 +49,13 @@ def calculate_savings(quantity, retail_price, wholesale_price, wholesale_min_qua
 def filter_nearby_wholesalers(user_location, item):
  if item != 'milk_packet':
   return []
+ nearby_shops = []
+ for _, shop in shops_df[(shops_df['shop_type'] == 'wholesale') & (shops_df['location'] == user_location)].iterrows():
+        nearby_shops.append({
+            'shop_id': shop['shop_id'],
+            'shop_name': shop['shop_name'],
+            'milk_packet_price': shop['milk_packet_price'],
+            'min_quantity': shop['min_quantity'],
+            'location': shop['location']
+        })
+ return nearby_shops
