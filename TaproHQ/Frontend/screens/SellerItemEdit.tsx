@@ -241,3 +241,12 @@ const SellerItemEdit = (props: any) => {
         )}
       />
 
+      {/* Update Button */}
+      <TouchableOpacity style={styles.updateBtn} onPress={updateItem}>
+        <Ionicons name="save-outline" size={22} color="#fff" />
+        <Text style={styles.updateBtnText}>Update Item</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
