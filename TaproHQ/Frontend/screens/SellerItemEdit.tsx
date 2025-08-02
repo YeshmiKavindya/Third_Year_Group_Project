@@ -13,15 +13,38 @@ import { COLORS, FONTS } from '../constants/theme';
 import HeaderBarNew from '../compos/HeaderBarNew';
 import { API_CONFIG, getApiUrl } from '../constants/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const SellerItemEdit = () => {
-  const [itemName, setItemName] = useState('');
-  const [stock, setStock] = useState('');
-  const [unitPrice, setUnitPrice] = useState('');
-  const [discount, setDiscount] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [variantPrice, setVariantPrice] = useState('');
-  const [variants, setVariants] = useState<any[]>([]);
 
+const SellerItemEdit = (props: any) => {
+  const { item } = props.route.params;
+  console.log("item", item);
+  const [itemName, setItemName] = useState(item?.item_name || '');
+  const [stock, setStock] = useState(item?.quantity || '');
+  const [storeType, setStoreType] = useState(item?.store_type || '');
+  const [sellerName, setSellerName] = useState(item?.seller_name || '');
+  const [unitPrice, setUnitPrice] = useState(item?.unit_price || '');
+  const [quantity, setQuantity] = useState('');
+  const [discountPercent, setDiscountPercent] = useState('');
+  const [discounts, setDiscounts] = useState<{minQuantity: number, discountPercent: number}[]>(
+    item?.discount?.map((d: any) => ({
+      minQuantity: Number(d.minQuantity),
+      discountPercent: Number(d.discountPercent)
+    })) || []
+  );
+
+  const addDiscount = () => {
+    if (!quantity || !discountPercent) {
+      Alert.alert('Please enter both minimum quantity and discount percentage.');
+      return;
+    }
+    const newDiscount = { 
+      minQuantity: Number(quantity), 
+      discountPercent: Number(discountPercent)
+    };
+    setDiscounts([...discounts, newDiscount]);
+    setQuantity('');
+    setDiscountPercent('');
+  };
+  
   const addVariant = () => {
     if (!quantity || !variantPrice) {
       Alert.alert('Please enter both quantity and unit price.');
