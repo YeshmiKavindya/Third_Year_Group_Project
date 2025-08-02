@@ -1,3 +1,4 @@
+from collections.abc import ItemsView
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -78,4 +79,4 @@ wholesale_price = wholesale_model.predict(np.array([[quantity]]))[0]
 
 wholesalers = shops_df[shops_df['shop_type'] == 'wholesale']
 if wholesalers.empty:
-        return jsonify({'error': 'No wholesalers found'}), 404
+ return jsonify({'error': 'No wholesalers found'}), 404
