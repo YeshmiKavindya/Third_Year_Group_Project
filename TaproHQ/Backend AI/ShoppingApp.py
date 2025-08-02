@@ -93,3 +93,13 @@ if savings > 0:
                 f"from a wholesaler than buying {quantity} {item}s from a retailer. "
                 f"You can save LKR {savings:.2f}."
             )
+
+nearby_wholesalers = filter_nearby_wholesalers(location, item)
+
+return jsonify({
+            'message': message,
+            'savings': round(savings, 2),
+            'wholesale_price': round(wholesale_price, 2),
+            'retail_price': round(retail_price, 2),
+            'nearby_wholesalers': nearby_wholesalers
+        })
