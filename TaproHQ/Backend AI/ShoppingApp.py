@@ -72,31 +72,31 @@ def check_bulk_order():
         if not all([quantity, item, location]):
             return jsonify({'error': 'Quantity, item, and location are required'}), 400
         
-retail_model, wholesale_model = train_price_model(item)
+        retail_model, wholesale_model = train_price_model(item)
 
-retail_price = retail_model.predict(np.array([[quantity]]))[0]
-wholesale_price = wholesale_model.predict(np.array([[quantity]]))[0]
+        retail_price = retail_model.predict(np.array([[quantity]]))[0]
+        wholesale_price = wholesale_model.predict(np.array([[quantity]]))[0]
 
-wholesalers = shops_df[shops_df['shop_type'] == 'wholesale']
-if wholesalers.empty:
- return jsonify({'error': 'No wholesalers found'}), 404
+        wholesalers = shops_df[shops_df['shop_type'] == 'wholesale']
+        if wholesalers.empty:
+            return jsonify({'error': 'No wholesalers found'}), 404
 
-wholesaler = wholesalers.iloc[0]
-savings, wholesale_total = calculate_savings(
-    quantity, retail_price, wholesale_price, wholesaler['min_quantity']
+        wholesaler = wholesalers.iloc[0]
+        savings, wholesale_total = calculate_savings(
+            quantity, retail_price, wholesale_price, wholesaler['min_quantity']
         )
 
-message = ""
-if savings > 0:
+        message = ""
+        if savings > 0:
             message = (
                 f"This shop sells wholesale {item}s. It is much cheaper to buy {quantity} {item}s "
                 f"from a wholesaler than buying {quantity} {item}s from a retailer. "
                 f"You can save LKR {savings:.2f}."
             )
 
-nearby_wholesalers = filter_nearby_wholesalers(location, item)
+        nearby_wholesalers = filter_nearby_wholesalers(location, item)
 
-return jsonify({
+        return jsonify({
             'message': message,
             'savings': round(savings, 2),
             'wholesale_price': round(wholesale_price, 2),
@@ -104,7 +104,7 @@ return jsonify({
             'nearby_wholesalers': nearby_wholesalers
         })
 
-except ValueError as ve:
+    except ValueError as ve:
         return jsonify({'error': str(ve)}), 400
     except Exception as e:
         return jsonify({'error': f"Server error: {str(e)}"}), 500
