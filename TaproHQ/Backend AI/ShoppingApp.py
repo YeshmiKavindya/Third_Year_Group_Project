@@ -37,3 +37,5 @@ wholesale_model = LinearRegression()
 wholesale_model.fit(wholesale_data[['quantity']], wholesale_data['price_per_packet'])
 
 return retail_model, wholesale_model
+
+def calculate_savings(quantity, retail_price, wholesale_price, wholesale_min_quantity):
