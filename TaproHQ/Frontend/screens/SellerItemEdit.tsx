@@ -12,7 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { COLORS, FONTS } from '../constants/theme';
 import HeaderBarNew from '../compos/HeaderBarNew';
 import { API_CONFIG, getApiUrl } from '../constants/api';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const SellerItemEdit = () => {
   const [itemName, setItemName] = useState('');
   const [stock, setStock] = useState('');
