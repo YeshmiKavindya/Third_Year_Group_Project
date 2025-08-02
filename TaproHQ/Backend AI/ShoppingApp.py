@@ -25,7 +25,7 @@ retail_data = pd.DataFrame({
         'quantity': [1, 10, 20, 30, 40],
         'price_per_packet': [250, 245, 240, 235, 230]
     })
-wholesale_data = pd.Dataframe({
+wholesale_data = pd.DataFrame({
     'quantity': [40,50,100,200,300]
     'price_per_packet':[200,195,190,185,180]
 })
@@ -44,4 +44,4 @@ if quantity >= wholesale_min_quantity:
         retail_total = retail_price * quantity
         savings = retail_total - wholesale_total
         return savings, wholesale_total
-    return 0, 0
+    return result 
