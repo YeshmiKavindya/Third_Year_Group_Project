@@ -250,3 +250,5 @@ const SellerItemEdit = (props: any) => {
   );
 };
 
+export default SellerItemEdit;
+
