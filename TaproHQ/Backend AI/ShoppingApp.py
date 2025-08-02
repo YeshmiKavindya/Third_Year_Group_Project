@@ -18,3 +18,5 @@ data = {
 }
 
 shops_df = pd.DataFrame(data)
+
+def train_price_model(item):
