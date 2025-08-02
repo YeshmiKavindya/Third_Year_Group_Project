@@ -85,3 +85,11 @@ wholesaler = wholesalers.iloc[0]
 savings, wholesale_total = calculate_savings(
     quantity, retail_price, wholesale_price, wholesaler['min_quantity']
         )
+
+message = ""
+if savings > 0:
+            message = (
+                f"This shop sells wholesale {item}s. It is much cheaper to buy {quantity} {item}s "
+                f"from a wholesaler than buying {quantity} {item}s from a retailer. "
+                f"You can save LKR {savings:.2f}."
+            )
