@@ -20,3 +20,12 @@ data = {
 shops_df = pd.DataFrame(data)
 
 def train_price_model(item):
+
+retail_data = pd.DataFrame({
+        'quantity': [1, 10, 20, 30, 40],
+        'price_per_packet': [250, 245, 240, 235, 230]
+    })
+wholesale_data = pd.Dataframe({
+    'quantity': [40,50,100,200,300]
+    'price_per_packet':[200,195,190,185,180]
+})
