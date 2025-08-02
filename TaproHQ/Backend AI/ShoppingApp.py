@@ -14,3 +14,5 @@ data = {
     'location': ['Kandy', 'Horana', 'Vavuniya', 'Jaffna', 'Colombo'],
 
     'min_quantity': [1, 50, 1, 40, 1], 
+    'item':['Milk packet','Soap','Chocolate','Biscuit','Napkins']
+}
