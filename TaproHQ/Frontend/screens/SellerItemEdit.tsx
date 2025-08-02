@@ -49,6 +49,27 @@ const SellerItemEdit = (props: any) => {
     const updated = discounts.filter((_, idx) => idx !== indexToRemove);
     setDiscounts(updated);
   };
+
+  const validateInputs = () => {
+    if (!itemName?.trim()) {
+      Alert.alert('Error', 'Item name cannot be empty');
+      return false;
+    }
+    if (!stock || isNaN(Number(stock))) {
+      Alert.alert('Error', 'Stock quantity must be a valid number');
+      return false;
+    }
+    if (!storeType?.trim() || !['retailer', 'wholesaler'].includes(storeType.toLowerCase())) {
+      Alert.alert('Error', 'Store type must be either retailer or wholesaler');
+      return false;
+    }
+    if (!unitPrice || isNaN(Number(unitPrice))) {
+      Alert.alert('Error', 'Unit price must be a valid number');
+      return false;
+    }
+    return true;
+  };
+
   const addVariant = () => {
     if (!quantity || !variantPrice) {
       Alert.alert('Please enter both quantity and unit price.');
