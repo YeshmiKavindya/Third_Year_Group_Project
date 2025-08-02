@@ -70,6 +70,21 @@ const SellerItemEdit = (props: any) => {
     return true;
   };
 
+  const updateItem = async () => {
+    if (!validateInputs()) return;
+
+    const updatedItem = {
+      _id: item._id,
+      item_name: itemName.trim(),
+      store_type: storeType.toLowerCase(),
+      seller_name: sellerName?.trim(),
+      quantity: stock,
+      unit_price: Number(unitPrice),
+      seller_email: item.seller_email,
+      discount: discounts,
+      login_date: item.login_date
+    };
+
   const addVariant = () => {
     if (!quantity || !variantPrice) {
       Alert.alert('Please enter both quantity and unit price.');
