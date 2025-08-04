@@ -1,3 +1,9 @@
+const express = require('express');
+const router = express.Router();
+const { body, validationResult } = require('express-validator');
+const StoreItemsInfo = require('../models/storeItemsInfo'); // Adjust path to your model
+const { authenticate } = require('../GlobalFunctions/globalFunctions');
+
 // Validation middleware for store items
 const stockValidation = [
   body('item_name')
