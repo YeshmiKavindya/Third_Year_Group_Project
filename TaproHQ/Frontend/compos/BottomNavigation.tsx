@@ -121,3 +121,5 @@ const BottomNavigation: React.FC = React.memo(() => {
     </View>
   );
 });
+
+export default BottomNavigation;
