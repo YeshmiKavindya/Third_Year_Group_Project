@@ -270,3 +270,5 @@ router.post('/item_stock_details/add', authenticate, async (req, res) => {
     });
   }
 });
+
+module.exports = router;
