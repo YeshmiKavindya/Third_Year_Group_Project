@@ -1,0 +1,69 @@
+import { View, Text,StatusBar } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Signup from './screens/SignupScreen';
+import Login from './screens/LoginScreen';
+import HomeScreen from './screens/Home';
+import CustomerSettingsScreen from './screens/CustomerSettingsScreen';
+import SellerSettingsScreen from './screens/SellerSettingsScreen';
+import SellerItemEdit from './screens/SellerItemEdit';
+import SellerItemAddition from './screens/SellerItemAddition';
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <StatusBar 
+        backgroundColor="orange"
+        barStyle={"dark-content"}
+        hidden={false}
+      />
+
+      <Stack.Navigator initialRouteName="Home">
+
+        <Stack.Screen name="Home" component={HomeScreen} /> 
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false, /* headerStyle: { backgroundColor: 'gray', },*/}} />
+        <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false}} />
+        <Stack.Screen name="CustomerSettings" component={CustomerSettingsScreen} />
+        <Stack.Screen name="SellerSettings" component={SellerSettingsScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="SellerItemEdit" component={SellerItemEdit} />
+        <Stack.Screen name="SellerItemAddition" component={SellerItemAddition} />
+           
+      </Stack.Navigator>
+      
+    </NavigationContainer>
+  );
+}
+
+/*
+
+
+    
+    <NavigationContainer>
+      <StatusBar 
+        backgroundColor="orange"
+        barStyle={"dark-content"}
+        hidden={false}
+      />
+
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen 
+          name="Home" 
+          component={Home} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="Sign" 
+          component={Sign}
+          options={{ headerShown: true, title: 'Login' }} 
+        />
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
+
+*/
+
+
+
